@@ -1,4 +1,5 @@
 import { useState } from "react"
+import Stopwatch from "./Stopwatch";
 
 
 function TodoList(){
@@ -60,9 +61,11 @@ function TodoList(){
                         onClick={()=>moveTaskUp(index)}>Move Up👆</button>
                         <button className="moveButton"
                         onClick={()=>moveTaskDown(index)}>Move Down👇</button>
+                        <Stopwatch/>
                     </li>
                 )}
             </ol>
+            
         </div>
     )
 }
