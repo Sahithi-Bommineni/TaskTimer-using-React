@@ -51,7 +51,7 @@ function TodoList(){
                 onClick={addTask}>Add</button>
             </div>
 
-            <ol>
+            <ul className="tasklist">
                 {tasks.map((task,index)=>
                     <li key={index}>
                         <span className="text">{task}</span>
@@ -64,7 +64,7 @@ function TodoList(){
                         <Stopwatch/>
                     </li>
                 )}
-            </ol>
+            </ul>
             
         </div>
     )

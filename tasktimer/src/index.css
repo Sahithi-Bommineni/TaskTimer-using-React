@@ -1,9 +1,15 @@
+body{
+  background-image: url('./assets/background.jpeg');
+  background-size: cover;
+}
 header{
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  padding: 20px;
+  font-size: 36px;
 }
-nav{
-  display: flex;
-  flex-direction: row;
+.tasklist{
+  
 }
