@@ -31,19 +31,19 @@ function Stopwatch(){
         <div>
           <h1>{formatTime(time)}</h1>
           <div>
-          <button onClick={() => {
+          <button className="startButton" onClick={() => {
             if (wasStopped) {
                 setTime(0);          // reset only if previously stopped
                 setWasStopped(false);
             }
             setIsRunning(true);
             }}>Start</button>
-            <button onClick={() => setIsRunning(false)}>Pause</button>
-            <button onClick={() => { 
+            <button className="pauseButton" onClick={() => setIsRunning(false)}>Pause</button>
+            <button className="stopButton" onClick={() => { 
                 setIsRunning(false);
                 setWasStopped(true);
                 }}>Stop</button>
-            <button onClick={() => { setIsRunning(false); setTime(0); }}>Reset</button>
+            <button className="resetButton" onClick={() => { setIsRunning(false); setTime(0); }}>Reset</button>
           </div>
         </div>
       );

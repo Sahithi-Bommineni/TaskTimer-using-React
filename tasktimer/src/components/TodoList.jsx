@@ -4,7 +4,12 @@ import Stopwatch from "./Stopwatch";
 
 function TodoList(){
 
-    const [tasks,setTasks] = useState(["Open Blinds","Make Bed","Stretch","Brush Teeth"]); //array
+    const [tasks,setTasks] = useState([
+        { id: 1, title: "Open Blinds", timeSpent: 0, completed: false },
+    { id: 2, title: "Make Bed", timeSpent: 0, completed: false },
+    { id: 3, title: "Stretch", timeSpent: 0, completed: false },
+    { id: 4, title: "Brush Teeth", timeSpent: 0, completed: false }
+    ]); //array
     const [newTask,setnewTask] = useState(""); //default value empty
 
     function handleInputChange(event){
@@ -13,11 +18,17 @@ function TodoList(){
 
     function addTask(){
         if(newTask.trim()!==""){ //to prevent empty tasks
-            setTasks(t=>[...t,newTask]);
-        setnewTask("");
+            const newTaskObj = {
+                id: Date.now(),         // temporary unique ID
+                title: newTask.trim(),  // task title
+                timeSpent: 0,           // initial time
+                completed: false,       // not completed yet
+              };
+          
+              setTasks(t=> [...t, newTaskObj]);
+              setNewTask(""); // clear input
+            }
         }
-
-    }
     
     function deleteTask(index){
         const updatedTasks=tasks.filter((_element,i)=>i!==index);
@@ -52,21 +63,23 @@ function TodoList(){
             </div>
 
             <ul className="tasklist">
+                <div className="container">
                 {tasks.map((task,index)=>
-                    <li key={index}>
-                        <span className="text">{task}</span>
+                    <li key={task.id}>
+                        <span className="text">{task.title}</span>
                         <button className="deleteButton"
                         onClick={()=>deleteTask(index)}>Delete</button>
                         <button className="moveButton"
-                        onClick={()=>moveTaskUp(index)}>Move Up👆</button>
+                        onClick={()=>moveTaskUp(index)}>👆</button>
                         <button className="moveButton"
-                        onClick={()=>moveTaskDown(index)}>Move Down👇</button>
+                        onClick={()=>moveTaskDown(index)}>👇</button>
                         <Stopwatch/>
                     </li>
                 )}
+                </div>
             </ul>
             
         </div>
-    )
+    );
 }
 export default TodoList

@@ -11,5 +11,56 @@ header{
   font-size: 36px;
 }
 .tasklist{
-  
+  list-style: none;
+}
+.container{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+}
+li {
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  width: 250px;
+  padding: 15px;
+  margin: 10px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  position: relative;
+}
+
+.text {
+  display: block;
+  font-size: 18px;
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: #333;
+}
+
+button {
+  margin-right: 5px;
+  padding: 6px 10px;
+  font-size: 14px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+}
+
+.deleteButton {
+  background-color: #f44336;
+  color: white;
+}
+
+.deleteButton:hover {
+  background-color: #d32f2f;
+}
+
+.moveButton {
+  background-color: #2196F3;
+  color: white;
+}
+
+.moveButton:hover {
+  background-color: #1976D2;
 }
